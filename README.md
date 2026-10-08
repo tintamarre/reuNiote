@@ -1,33 +1,25 @@
 ## reuNiote
 
-Petite application web pour gérer estimer le cout horaire d'une réunion de travail.
+Petite application web pour estimer en direct le coût d'une réunion de travail pour le contribuable.
 
-- **Demo**
+- **Demo** : https://tintamarre.github.io/reuNiote/
 
-# Run it
+Application statique Vue 3 + Vite + Tailwind CSS v4, déployée sur GitHub Pages.
 
-First install the dependencies:
-
-```bash
-python3 -m pip install -r requirements.txt
-```
-
-Then run the app:
+# Développement
 
 ```bash
-streamlit run app.py
+npm install
+npm run dev
 ```
 
-# Deploy with Docker
-
-## Build
+# Build
 
 ```bash
-docker build --no-cache -f Dockerfile -t app:latest .
+npm run build     # génère dist/
+npm run preview   # sert dist/ en local
 ```
 
-## Run in daemon mode
+# Déploiement
 
-```bash
-docker run -d -p 8501:8501 app:latest
-```
+Chaque push sur `main` déclenche le workflow `.github/workflows/deploy.yml` qui build l'application et la publie sur GitHub Pages (Settings → Pages → Source : « GitHub Actions »).
